@@ -1,0 +1,47 @@
+ALGORITHM StringCheck
+VAR
+    currantChar : CHAR
+    word : INTEGER = 1;
+    caracter,vowel: INTEGER = 0;
+BEGIN
+
+    Read(currantChar)
+    WHILE (currantChar = ' ' or currantChar = '.') DO
+        Write("you can not begin the sentance with space or point !!")
+        Read(currantChar)
+    END_WHILE 
+
+    caracter := caracter + 1;
+            IF (currantChar = 'e' or
+                currantChar = 'a' or
+                currantChar = 'y' or
+                currantChar = 'o' or
+                currantChar = 'i' ) THEN
+
+                vowel := vowel +1;
+
+            END_IF
+
+    REPEAT
+        Read(currantChar)
+            caracter := caracter + 1;
+            IF (currantChar = ' ') THEN
+                word := word +1;
+            END_IF
+
+            IF (currantChar = 'e' or
+                currantChar = 'a' or
+                currantChar = 'y' or
+                currantChar = 'o' or
+                currantChar = 'i' ) THEN
+
+                vowel := vowel +1;
+
+            END_IF
+    UNTIL (currantChar = '.')
+
+    Write("in this sentance you have :")
+    Write("charcters : " + caracter);
+    Write("words : " + word);
+    Write("vowels : " + vowel);
+END
